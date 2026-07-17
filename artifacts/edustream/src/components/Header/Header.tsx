@@ -2,64 +2,81 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useToast } from '../../contexts/ToastContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import './Header.css';
-import logoImg from '@assets/ChatGPT_Image_Jul_15,_2026,_08_08_30_PM_1784267185333.png';
 
 export function Header() {
   const { dark, toggleTheme } = useTheme();
   const { showToast } = useToast();
   const [langOpen, setLangOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState('English');
-  const langMenuRef = useRef<HTMLDivElement>(null);
+  const langRef = useRef<HTMLDivElement>(null);
 
-  const languages = ['English', 'Español', 'Français', 'Deutsch', 'हिन्दी', 'العربية'];
+  const languages = ['English', 'हिन्दी', 'ಕನ್ನಡ', 'Español'];
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
+    function handleClick(e: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
   }, []);
 
   const handleLangSelect = (lang: string) => {
     setCurrentLang(lang);
     setLangOpen(false);
-    showToast(`Language changed to ${lang}`);
+    showToast('Language set to ' + lang);
   };
 
   return (
-    <header className="topbar">
-      <div className="topbar-left">
-        <img src={logoImg} alt="EduStream Logo" className="header-logo" />
-        <span className="header-brand">EduStream</span>
-      </div>
-      <div className="topbar-right">
-        <div className="lang-selector" ref={langMenuRef}>
-          <button className="top-btn" onClick={() => setLangOpen(!langOpen)}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            <span>{currentLang}</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`chevron ${langOpen ? 'open' : ''}`}><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          {langOpen && (
-            <div className="lang-menu open">
-              {languages.map((lang) => (
-                <button key={lang} className="lang-item" onClick={() => handleLangSelect(lang)}>
-                  {lang}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-        <button className="top-btn theme-btn" onClick={toggleTheme}>
-          {dark ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-          )}
+    <div className="topbar">
+      <div className="lang-selector" ref={langRef}>
+        <button
+          className="top-btn"
+          id="langBtn"
+          aria-haspopup="true"
+          aria-expanded={langOpen}
+          onClick={(e) => { e.stopPropagation(); setLangOpen(o => !o); }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/>
+          </svg>
+          {currentLang}
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
         </button>
+        <div className={`lang-menu${langOpen ? ' open' : ''}`} id="langMenu">
+          {languages.map(lang => (
+            <button key={lang} data-lang={lang} onClick={(e) => { e.stopPropagation(); handleLangSelect(lang); }}>
+              {lang}
+            </button>
+          ))}
+        </div>
       </div>
-    </header>
+
+      <button
+        className="top-btn"
+        id="themeBtn"
+        title="Toggle theme"
+        aria-label="Toggle dark mode"
+        onClick={() => {
+          toggleTheme();
+          showToast(!dark ? 'Dark mode on' : 'Light mode on');
+        }}
+      >
+        {dark ? (
+          <svg id="themeIcon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        ) : (
+          <svg id="themeIcon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>
+          </svg>
+        )}
+      </button>
+    </div>
   );
 }

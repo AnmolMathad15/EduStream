@@ -5,6 +5,7 @@ import { Features } from '../components/Features/Features';
 import { Testimonial } from '../components/Testimonial/Testimonial';
 import { Stats } from '../components/Stats/Stats';
 import { Footer } from '../components/Footer/Footer';
+import { HeroImage } from '../components/HeroImage/HeroImage';
 import { AuthCard } from '../components/Auth/AuthCard';
 
 export default function Login() {
@@ -12,14 +13,15 @@ export default function Login() {
     <div className="page">
       <Header />
       <div className="layout">
-        <div className="left-panel">
+        <div className="left">
           <Hero />
           <Features />
-          <Stats />
           <Testimonial />
+          <Stats />
           <Footer />
         </div>
-        <div className="right-panel">
+        <div className="stage">
+          <HeroImage />
           <AuthCard initialMode="signin" />
         </div>
       </div>
