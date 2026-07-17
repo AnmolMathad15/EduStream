@@ -42,8 +42,15 @@ h1.headline .grad {
 }
 .underline {
   display: block; width: 150px; height: 4px; border-radius: 4px; margin-top: 6px;
-  background: linear-gradient(90deg,var(--blue-700),var(--purple-500));
-  transform-origin: left; animation: growLine .8s ease .5s both;
+  background: linear-gradient(90deg, var(--blue-700), var(--purple-500), var(--pink-500), var(--blue-700));
+  background-size: 300% 100%;
+  transform-origin: left;
+  animation: growLine .8s ease .5s both, underlineFlow 2.5s linear 1.3s infinite;
+}
+
+@keyframes underlineFlow {
+  0%   { background-position: 100% 0; }
+  100% { background-position: 0% 0; }
 }
 
 /* ── Lede ── */
