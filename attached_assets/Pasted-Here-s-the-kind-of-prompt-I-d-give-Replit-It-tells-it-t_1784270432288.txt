@@ -1,0 +1,500 @@
+Here's the kind of prompt I'd give Replit. It tells it to **extend** your existing design rather than replace it.
+
+---
+
+# EduStream Dashboard UI Prompt (US21–US40)
+
+You are continuing the existing EduStream LMS project.
+
+**IMPORTANT: Do NOT redesign or replace the existing authentication pages.**
+
+The login and signup pages are already complete with a premium dark SaaS aesthetic. Your task is to extend the exact same design language into the Student Dashboard.
+
+---
+
+# Design Goal
+
+Build a world-class Student Dashboard that feels like it belongs to the existing EduStream authentication experience.
+
+The user should feel like they have simply logged into the application—not switched to a different website.
+
+The dashboard should resemble premium SaaS products such as:
+
+* Linear
+* Raycast
+* Notion
+* Clerk Dashboard
+* Vercel Dashboard
+* Stripe Dashboard
+* GitHub
+* Coursera Instructor Dashboard
+* Udemy Learning Dashboard
+
+Maintain the same spacing, shadows, gradients, animations, typography, rounded corners, color palette, and glassmorphism used throughout the authentication pages.
+
+Never introduce a different visual language.
+
+---
+
+# Existing Theme (Must Keep)
+
+Maintain:
+
+* Dark charcoal background
+* Glassmorphism cards
+* Blue/Cyan gradients
+* Rounded 16–24px corners
+* Soft shadows
+* Gradient buttons
+* Smooth transitions
+* Premium typography
+* Existing color tokens
+* Existing animations
+* Existing ThemeProvider
+* Existing reusable UI components
+
+Reuse the current components whenever possible.
+
+Do NOT create duplicate button, card, input, modal, or toast components.
+
+---
+
+# Dashboard Layout
+
+Create a responsive Student Dashboard.
+
+Desktop Layout
+
+```
+------------------------------------------------------------
+Sidebar      | Header
+             |
+             | Welcome Card
+             |
+             | Statistics Cards
+             |
+             | Recently Accessed
+             |
+             | Courses Table
+------------------------------------------------------------
+```
+
+Tablet
+
+Sidebar collapses.
+
+Mobile
+
+Sidebar becomes an animated drawer.
+
+---
+
+# US21 – Sidebar Navigation
+
+Create a premium sidebar containing:
+
+Dashboard
+
+My Courses
+
+Assignments
+
+Calendar
+
+Progress
+
+Profile
+
+Settings
+
+Logout
+
+Each item must have an elegant Lucide icon.
+
+Active page should have:
+
+* Gradient background
+* Left accent indicator
+* Soft glow
+
+Sidebar should collapse into icon-only mode.
+
+On mobile use Sheet/Drawer.
+
+---
+
+# US22 – Header
+
+Top navigation should include
+
+Greeting
+
+Good Morning 👋
+
+Welcome back, {Student Name}
+
+Search button placeholder
+
+Notification icon
+
+Theme Toggle
+
+Profile Avatar
+
+Everything aligned cleanly.
+
+Sticky header while scrolling.
+
+---
+
+# US23 – Course Summary
+
+Create a large hero dashboard card.
+
+Example:
+
+Continue Learning
+
+Java Full Stack Development
+
+Progress Bar
+
+Resume Learning Button
+
+Beautiful gradient background.
+
+---
+
+# US24 – Recently Accessed
+
+Beautiful card.
+
+List recent lessons.
+
+Each row:
+
+Course icon
+
+Lesson name
+
+Time
+
+Arrow icon
+
+Hover animation.
+
+---
+
+# US25 – Logout
+
+Logout button in sidebar.
+
+Use existing button styles.
+
+Show confirmation dialog before logout.
+
+---
+
+# US26 – Responsive Sidebar
+
+Desktop
+
+280px
+
+Tablet
+
+Collapsed
+
+Mobile
+
+Drawer
+
+Animated transitions.
+
+---
+
+# US27 – Typography
+
+Use current typography scale.
+
+Clear hierarchy.
+
+Large headings.
+
+Readable body text.
+
+Consistent spacing.
+
+---
+
+# US28 – Active Courses Widget
+
+Create premium statistic cards.
+
+Examples
+
+Active Courses
+
+Completed Courses
+
+Learning Hours
+
+Current Streak
+
+Certificates
+
+Each card:
+
+Gradient icon
+
+Large number
+
+Small description
+
+Hover animation
+
+Glass background
+
+---
+
+# US29 – Profile Image
+
+Top right avatar.
+
+Placeholder image.
+
+Dropdown later.
+
+---
+
+# US30 – Theme Toggle
+
+Reuse existing ThemeProvider.
+
+Animated toggle.
+
+Persist theme.
+
+---
+
+# US31 – Course Table
+
+Premium data table.
+
+Columns
+
+Course
+
+Instructor
+
+Progress
+
+Status
+
+Actions
+
+Rounded table.
+
+Beautiful spacing.
+
+Hover rows.
+
+Responsive.
+
+---
+
+# US32 – Delete
+
+Delete button.
+
+Confirmation dialog.
+
+Danger styling.
+
+Smooth animation.
+
+---
+
+# US33 – Edit
+
+Edit button.
+
+Opens modal.
+
+---
+
+# US34 – Update Form
+
+Profile form.
+
+Fields
+
+Name
+
+Email
+
+Phone
+
+Department
+
+Year
+
+Prefill existing values.
+
+Validation.
+
+---
+
+# US35 – Success Toast
+
+Use existing toast component.
+
+Examples
+
+Profile Updated
+
+Course Deleted
+
+Changes Saved
+
+---
+
+# US36 – Delete Confirmation
+
+Modern dialog.
+
+Title
+
+Delete Course?
+
+Description
+
+This action cannot be undone.
+
+Buttons
+
+Cancel
+
+Delete
+
+---
+
+# US37 – Loading
+
+Never show blank pages.
+
+Use Skeleton components.
+
+Cards
+
+Table
+
+Profile
+
+Recent Activity
+
+---
+
+# US38 – Empty States
+
+If no courses exist:
+
+Large illustration
+
+Friendly message
+
+Browse Courses button
+
+No plain text.
+
+---
+
+# US39 – Search
+
+Search courses.
+
+Live filtering.
+
+Animated search bar.
+
+---
+
+# US40 – Prefilled Edit
+
+When Edit is clicked:
+
+Modal opens.
+
+Current values already filled.
+
+Save updates immediately in UI.
+
+---
+
+# Animations
+
+Use Framer Motion where appropriate.
+
+Fade
+
+Slide
+
+Scale
+
+Hover lift
+
+Button ripple
+
+Sidebar animation
+
+Card animation
+
+Toast animation
+
+Keep animations subtle and premium.
+
+---
+
+# Responsiveness
+
+Support
+
+Desktop
+
+Laptop
+
+Tablet
+
+Mobile
+
+No horizontal scrolling.
+
+Perfect spacing.
+
+---
+
+# Code Quality
+
+Use reusable components.
+
+Avoid duplication.
+
+Keep components under ~150 lines where practical by extracting smaller pieces.
+
+Use TypeScript interfaces.
+
+Use proper folder structure.
+
+Reuse existing components before creating new ones.
+
+Maintain accessibility.
+
+---
+
+# Final Requirement
+
+The finished dashboard should look like it was designed by the same team that built the authentication pages.
+
+A user should never feel they navigated to a different product.
+
+The transition from Login → Dashboard should feel completely seamless, with identical branding, visual language, spacing, colors, typography, animations, and overall premium SaaS experience.
