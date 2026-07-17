@@ -23,6 +23,8 @@
   width: 100%; max-width: 520px;
   filter: drop-shadow(0 30px 45px rgba(30,64,175,.25));
   animation: floatY 6s ease-in-out infinite;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 80%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 80%);
 }
 
 @media (max-width: 1180px) {
