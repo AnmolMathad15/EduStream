@@ -10,21 +10,26 @@ import { AuthCard } from '../components/Auth/AuthCard';
 
 export default function Signup() {
   return (
-    <div className="page">
-      <Header />
-      <div className="layout">
-        <div className="left">
-          <Hero />
-          <Features />
-          <Testimonial />
-          <Stats />
-          <Footer />
-        </div>
-        <div className="stage">
-          <HeroImage />
-          <AuthCard initialMode="signup" />
+    <>
+      <div className="bg-blob b1"></div>
+      <div className="bg-blob b2"></div>
+      <div className="bg-blob b3"></div>
+      <div className="page">
+        <Header />
+        <div className="layout">
+          <div className="left">
+            <Hero />
+            <Features />
+            <Testimonial />
+            <Stats />
+            <Footer />
+          </div>
+          <div className="stage">
+            <HeroImage />
+            <AuthCard initialMode="signup" />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -25,13 +25,13 @@ export function AuthCard({ initialMode = 'signin' }: { initialMode?: 'signin' | 
     if (!ok) return;
 
     setLoading(true);
-    const label = mode === 'signin' ? 'Sign In' : 'Create Account';
     setTimeout(() => {
       setLoading(false);
       showToast(mode === 'signin' ? 'Signed in successfully!' : 'Account created!');
       setEmail('');
       setPassword('');
       if (rememberRef.current) rememberRef.current.checked = true;
+      setLocation('/dashboard');
     }, 1100);
   };
 

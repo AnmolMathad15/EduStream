@@ -8,6 +8,7 @@ import './styles/globals.css';
 
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
 import NotFound from '@/pages/not-found';
 
 const queryClient = new QueryClient();
@@ -15,18 +16,18 @@ const queryClient = new QueryClient();
 function AppContent() {
   return (
     <>
-      <div className="bg-blob b1"></div>
-      <div className="bg-blob b2"></div>
-      <div className="bg-blob b3"></div>
-      
       <Switch>
         <Route path="/" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/dashboard" component={Dashboard} />
         <Route component={NotFound} />
       </Switch>
     </>
   );
 }
+
+// Auth pages (Login/Signup) include their own bg-blobs via the Login/Signup page components.
+// Dashboard includes its own bg-blobs in Dashboard.tsx.
 
 function App() {
   return (
