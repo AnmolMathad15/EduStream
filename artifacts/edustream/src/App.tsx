@@ -5,11 +5,13 @@ import { ToastProvider } from './contexts/ToastContext';
 
 import './styles/variables.css';
 import './styles/globals.css';
+import './styles/landing.css';
 
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
-import NotFound from '@/pages/not-found';
+import NotFound from './pages/not-found';
 
 const queryClient = new QueryClient();
 
@@ -17,7 +19,8 @@ function AppContent() {
   return (
     <>
       <Switch>
-        <Route path="/" component={Login} />
+        <Route path="/" component={Landing} />
+        <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/dashboard" component={Dashboard} />
         <Route component={NotFound} />
@@ -25,9 +28,6 @@ function AppContent() {
     </>
   );
 }
-
-// Auth pages (Login/Signup) include their own bg-blobs via the Login/Signup page components.
-// Dashboard includes its own bg-blobs in Dashboard.tsx.
 
 function App() {
   return (
