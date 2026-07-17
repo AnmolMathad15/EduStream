@@ -1,0 +1,157 @@
+.hero-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 48px;
+  animation: fadeUp 0.8s ease backwards;
+}
+.hero-content {
+  max-width: 600px;
+}
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.brand-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+.brand-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--text-dark);
+}
+.brand-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.pill {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--bg-page-2);
+  border: 1px solid var(--border-soft);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-700);
+  margin-bottom: 24px;
+}
+.hero-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+.hero-content h1 .highlight {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(100deg, var(--blue-700), var(--purple-500), var(--blue-600));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+.hero-content h1 .underline {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: var(--pink-500);
+  opacity: 0.2;
+  border-radius: 4px;
+  transform-origin: left center;
+  animation: growLine 1s ease 0.5s both;
+}
+.lede {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-body);
+  max-width: 540px;
+}
+
+.hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+.floating-img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius-lg);
+  position: relative;
+  z-index: 2;
+  animation: floatY 6s ease-in-out infinite;
+  filter: drop-shadow(var(--shadow-card));
+}
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed var(--blue-600);
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.orbit.o1 {
+  width: 480px;
+  height: 480px;
+  animation: spinSlow 30s linear infinite;
+}
+.orbit.o2 {
+  width: 380px;
+  height: 380px;
+  border-color: var(--purple-500);
+  animation: spinSlow 40s linear infinite reverse;
+}
+.sparkle {
+  position: absolute;
+  font-size: 24px;
+  z-index: 3;
+}
+.sparkle.s1 { top: 10%; left: 10%; animation: floatY 4s ease-in-out infinite 0.5s; }
+.sparkle.s2 { top: 20%; right: 10%; animation: floatY 5s ease-in-out infinite 1s; }
+.sparkle.s3 { bottom: 20%; left: 5%; animation: floatY 4.5s ease-in-out infinite 1.5s; }
+.sparkle.s4 { bottom: 10%; right: 15%; animation: floatY 5.5s ease-in-out infinite 0.2s; }
+
+@media (min-width: 981px) {
+  .hero-wrap {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hero-content {
+    flex: 1;
+  }
+  .hero-visual {
+    flex: 1;
+  }
+}
+@media (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 40px;
+  }
+  .orbit.o1 { width: 340px; height: 340px; }
+  .orbit.o2 { width: 260px; height: 260px; }
+}

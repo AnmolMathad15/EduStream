@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "EduStream"
+version = "1.0.0"
+id = "artifacts/edustream"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22975
+
+[services.development]
+run = "pnpm --filter @workspace/edustream run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/edustream", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/edustream/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22975"
+BASE_PATH = "/"
