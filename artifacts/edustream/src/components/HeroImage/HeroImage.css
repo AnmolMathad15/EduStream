@@ -32,6 +32,14 @@
   margin-left: -80px;
   -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 80%);
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 80%);
+  transition: opacity .4s ease, filter .4s ease;
+}
+
+[data-theme="dark"] .hero-wrap img {
+  opacity: 0.75;
+  filter: drop-shadow(0 30px 45px rgba(30,64,175,.18)) brightness(0.88) saturate(0.9);
+  -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 25%, transparent 72%);
 }
 
 /* ── Small desktop / large tablet (≤1180px) ── */
