@@ -14,6 +14,7 @@
   padding: 9px 14px; border-radius: 999px;
   box-shadow: var(--shadow-soft);
   transition: .2s ease;
+  white-space: nowrap;
 }
 .top-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 24px -10px rgba(37,99,235,.3); border-color: var(--blue-600); }
 .lang-selector { position: relative; }
@@ -29,3 +30,12 @@
   font-family: 'Inter', sans-serif; font-size: 14px; cursor: pointer; color: var(--text-dark);
 }
 .lang-menu button:hover { background: rgba(59,130,246,.08); }
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .topbar { gap: 10px; }
+  .top-btn { font-size: 13px; padding: 7px 11px; gap: 5px; }
+}
+@media (max-width: 375px) {
+  .top-btn { padding: 6px 9px; font-size: 12px; }
+}

@@ -5,3 +5,16 @@
 .stat:hover .dot { transform: scale(1.1); }
 .stat .num { font-weight: 800; font-size: 19px; font-family: 'Poppins', sans-serif; }
 .stat .lbl { font-size: 12px; color: var(--text-muted); }
+
+/* ── Tablet: tighter gap ── */
+@media (max-width: 768px) {
+  .stats { gap: 22px; }
+  .stat .num { font-size: 17px; }
+}
+
+/* ── Mobile: 2×2 grid ── */
+@media (max-width: 480px) {
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat .dot { width: 34px; height: 34px; font-size: 14px; }
+  .stat .num { font-size: 16px; }
+}

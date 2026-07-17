@@ -1,5 +1,6 @@
 .left { animation: fadeUp .6s ease both; }
 
+/* ── Brand badge ── */
 .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; animation: fadeUp .6s ease both; }
 .brand-mark {
   width: 54px; height: 54px; border-radius: 16px;
@@ -12,8 +13,9 @@
 .brand-mark:hover { transform: translateY(-2px) rotate(-3deg); box-shadow: 0 14px 30px -8px rgba(37,99,235,.5), 0 0 0 6px rgba(59,130,246,.12); }
 .brand-mark img { width: 34px; height: 34px; object-fit: contain; }
 .brand-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -.5px; }
-.brand-tag { font-size: 13px; font-weight: 600; color: var(--blue-700); }
+.brand-tag  { font-size: 13px; font-weight: 600; color: var(--blue-700); }
 
+/* ── Pill ── */
 .pill {
   display: inline-flex; align-items: center; gap: 8px;
   background: rgba(59,130,246,.1); color: var(--blue-700);
@@ -24,6 +26,7 @@
   animation: fadeUp .6s ease .08s both;
 }
 
+/* ── Headline ── */
 h1.headline {
   font-family: 'Poppins', sans-serif; font-weight: 800;
   font-size: 44px; line-height: 1.08; letter-spacing: -1px;
@@ -43,8 +46,51 @@ h1.headline .grad {
   transform-origin: left; animation: growLine .8s ease .5s both;
 }
 
+/* ── Lede ── */
 p.lede { font-size: 15.5px; line-height: 1.7; color: var(--text-body); max-width: 480px; margin-bottom: 26px; animation: fadeUp .6s ease .2s both; }
 
-@media (max-width: 980px) {
+/* ════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════ */
+
+/* Small desktop (≤1180px) — layout stacked, left goes full width */
+@media (max-width: 1180px) {
+  h1.headline { font-size: 42px; }
+  p.lede { max-width: 100%; }
+}
+
+/* Tablet landscape (≤1024px) */
+@media (max-width: 1024px) {
   h1.headline { font-size: 38px; }
+  p.lede { font-size: 15px; }
+}
+
+/* Tablet portrait (≤768px) */
+@media (max-width: 768px) {
+  h1.headline { font-size: 34px; letter-spacing: -.5px; }
+  .brand-name  { font-size: 24px; }
+  p.lede { font-size: 14.5px; }
+}
+
+/* Large mobile (≤640px) */
+@media (max-width: 640px) {
+  h1.headline { font-size: 30px; letter-spacing: -.3px; }
+  .underline  { width: 110px; }
+  p.lede { font-size: 14px; line-height: 1.65; }
+  .brand-mark { width: 46px; height: 46px; }
+  .brand-mark img { width: 28px; height: 28px; }
+  .brand-name { font-size: 22px; }
+}
+
+/* Mobile (≤480px) */
+@media (max-width: 480px) {
+  h1.headline { font-size: 28px; }
+  .pill { font-size: 12px; padding: 6px 13px; }
+  p.lede { font-size: 13.5px; }
+}
+
+/* Small mobile (≤375px) */
+@media (max-width: 375px) {
+  h1.headline { font-size: 25px; }
+  .brand-name { font-size: 20px; }
 }

@@ -10,3 +10,8 @@
 }
 .foot-links a { color: var(--text-muted); text-decoration: none; transition: .2s ease; }
 .foot-links a:hover { color: var(--blue-700); }
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .foot-links { gap: 12px; font-size: 12px; }
+}
